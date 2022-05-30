@@ -19,7 +19,7 @@ files:
 # Defines the file to call whenever a function is called
 entrypoint:
   kind: task
-  exec: Titanic.py
+  exec: src/Titanic.py
 
 # Define the actions
 actions:
