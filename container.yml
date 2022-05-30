@@ -13,7 +13,7 @@ install:
 
 # Define the files that are part of the package
 files:
-  - Titanic.py
+  - src/Titanic.py
   - requirements.txt
 
 # Defines the file to call whenever a function is called
