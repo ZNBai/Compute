@@ -2,10 +2,10 @@ from os import path
 import sys
 import Titanic
 
-sample_train = "/data/train.csv"
-sample_test = "/data/test.csv"
-model_path = "/data/"
-output_path = "/data/"
+sample_train = "./t_data/train.csv"
+sample_test = "./t_data/test.csv"
+model_path = "./t_data/"
+output_path = "./t_data/"
 
 def test_train():
     Titanic.train(sample_train, model_path)
