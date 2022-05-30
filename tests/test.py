@@ -1,4 +1,4 @@
-import os
+from os import path
 import sys
 from titanic import Titanic
 
