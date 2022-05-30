@@ -67,7 +67,7 @@ def train(input_path, model_path):
 #def test(input: str, output_path: str) -> str:
 def test(input_path, model_path, output_path):
     if os.path.getsize(model_path+'clf.pickle') > 0:
-        f = open('/data/clf.pickle','rb')
+        f = open(model_path+'clf.pickle','rb')
         clf = pickle.load(f)
         f.close()
 
