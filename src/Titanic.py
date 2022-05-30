@@ -58,8 +58,11 @@ def train(input_path, output_path):
     clf = linear_model.LogisticRegression(solver='liblinear',C=1.0,penalty='l2',tol=1e-6)
     clf.fit(x,y)
 
-    wpath = output_path + "clf.pickle"
-    f = open(wpath,'wb')
+    f = open(output_path + 'clf.pickle','wb')
+    pickle.dump(clf,f)
+    f.close()
+
+    f = open('/data/clf.pickle','wb')
     pickle.dump(clf,f)
     f.close()
 
@@ -97,9 +100,9 @@ if __name__ == "__main__":
 
     input_path = os.environ["INPUT"]
     output_path = os.environ["OUTPUT_PATH"]
+
     # If it checks out, call the appropriate function
     command = sys.argv[1]
-
     if command == "train":
         result = train(input_path, output_path)
         #result = train(os.environ["INPUT"])

@@ -8,9 +8,9 @@ output_path = "tests/data/"
 
 def train_titanic():
     Titanic.train(sample_train, output_path)
-    assert path.exists("tests/data/clf.pickle") is True
+    assert path.exists(output_path + "clf.pickle") is True
 
 def test_titanic():
     Titanic.test(sample_test, output_path)
-    assert path.exists("tests/data/prediction.csv") is True
+    assert path.exists(output_path + "prediction.csv") is True
     
