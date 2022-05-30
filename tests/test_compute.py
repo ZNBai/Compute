@@ -7,7 +7,7 @@ sample_test = "tests/data/test.csv"
 output_path = "tests/data/"
 
 def train_titanic():
-    Titanic.train(sample_train)
+    Titanic.train(sample_train, output_path)
     assert path.exists("tests/data/clf.pickle") is True
 
 def test_titanic():

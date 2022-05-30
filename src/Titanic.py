@@ -40,7 +40,7 @@ def set_normalization(df):
     df['Fare_scaled'] = scaler.fit_transform(df['Fare'].values.reshape(-1,1),fare_scale_param)
     return df
 
-def train(input_path):
+def train(input_path, output_path):
 
     df = read_input(input_path)
     df = data_clean(df)
@@ -58,11 +58,12 @@ def train(input_path):
     clf = linear_model.LogisticRegression(solver='liblinear',C=1.0,penalty='l2',tol=1e-6)
     clf.fit(x,y)
 
-    f = open('/data/clf.pickle','wb')
+    wpath = output_path + "clf.pickle"
+    f = open(wpath,'wb')
     pickle.dump(clf,f)
     f.close()
 
-    return "Wrote the model to: /data/clf.pickle.\n" 
+    return "Wrote the model to: " + output_path + "clf.pickle.\n" 
 
 #def test(input: str, output_path: str) -> str:
 def test(input_path, output_path):
@@ -95,14 +96,14 @@ if __name__ == "__main__":
         exit(1)
 
     input_path = os.environ["INPUT"]
-
+    output_path = os.environ["OUTPUT_PATH"]
     # If it checks out, call the appropriate function
     command = sys.argv[1]
+
     if command == "train":
-        result = train(input_path)
+        result = train(input_path, output_path)
         #result = train(os.environ["INPUT"])
     else:
-        output_path = os.environ["OUTPUT_PATH"]
         result = test(input_path, output_path)
         #result = test(os.environ["INPUT"], os.environ["OUTPUT_PATH"])
 
