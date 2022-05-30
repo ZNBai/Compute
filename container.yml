@@ -32,7 +32,7 @@ actions:
     # Define the input: a single string under the 'INPUT' environment variable
     - name: input
       type: string
-    - name: output_path
+    - name: model_path
       type: string
     output:
     # Define the output: a string, identifyable by the 'output' key
@@ -46,6 +46,8 @@ actions:
     input:
     # Define the input: a single string under the 'INPUT' environment variable
     - name: input
+      type: string
+    - name: model_path
       type: string
     - name: output_path
       type: string

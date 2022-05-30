@@ -40,7 +40,7 @@ def set_normalization(df):
     df['Fare_scaled'] = scaler.fit_transform(df['Fare'].values.reshape(-1,1),fare_scale_param)
     return df
 
-def train(input_path, output_path):
+def train(input_path, model_path):
 
     df = read_input(input_path)
     df = data_clean(df)
@@ -58,19 +58,15 @@ def train(input_path, output_path):
     clf = linear_model.LogisticRegression(solver='liblinear',C=1.0,penalty='l2',tol=1e-6)
     clf.fit(x,y)
 
-    f = open(output_path + 'clf.pickle','wb')
+    f = open(model_path + 'clf.pickle','wb')
     pickle.dump(clf,f)
     f.close()
 
-    f = open('/data/clf.pickle','wb')
-    pickle.dump(clf,f)
-    f.close()
-
-    return "Wrote the model to: " + output_path + "clf.pickle.\n" 
+    return "Wrote the model to: " + model_path + "clf.pickle.\n" 
 
 #def test(input: str, output_path: str) -> str:
-def test(input_path, output_path):
-    if os.path.getsize('/data/clf.pickle') > 0:
+def test(input_path, model_path, output_path):
+    if os.path.getsize(model_path+'clf.pickle') > 0:
         f = open('/data/clf.pickle','rb')
         clf = pickle.load(f)
         f.close()
@@ -99,15 +95,16 @@ if __name__ == "__main__":
         exit(1)
 
     input_path = os.environ["INPUT"]
-    output_path = os.environ["OUTPUT_PATH"]
+    model_path = os.environ["MODEL_PATH"]
 
     # If it checks out, call the appropriate function
     command = sys.argv[1]
     if command == "train":
-        result = train(input_path, output_path)
+        result = train(input_path, model_path)
         #result = train(os.environ["INPUT"])
     else:
-        result = test(input_path, output_path)
+        output_path = os.environ["OUTPUT_PATH"]
+        result = test(input_path, model_path, output_path)
         #result = test(os.environ["INPUT"], os.environ["OUTPUT_PATH"])
 
     # Print the result with the YAML package
