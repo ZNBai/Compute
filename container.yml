@@ -13,13 +13,13 @@ install:
 
 # Define the files that are part of the package
 files:
-  - src/Titanic.py
+  - Titanic.py
   - requirements.txt
 
 # Defines the file to call whenever a function is called
 entrypoint:
   kind: task
-  exec: src/Titanic.py
+  exec: Titanic.py
 
 # Define the actions
 actions:
