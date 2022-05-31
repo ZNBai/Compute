@@ -6,16 +6,17 @@ sample_train = "./t_data/train.csv"
 sample_test = "./t_data/test.csv"
 model_path = "./t_data/"
 output_path = "./t_data/"
+
 def test_clean():
-	Titanic.clean(sample_train, output_path)
+    Titanic.clean(sample_train, output_path)
     assert path.exists(output_path + "clean.csv") is True
 
 def test_numeralization():
-	Titanic.numeralization(sample_train, output_path)
+    Titanic.numeralization(sample_train, output_path)
     assert path.exists(output_path + "numeralization.csv") is True
 
 def test_normalization():
-	Titanic.normalization(sample_train, output_path)
+    Titanic.normalization(sample_train, output_path)
     assert path.exists(output_path + "normalization.csv") is True
 
 def test_train():
