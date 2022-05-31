@@ -23,6 +23,51 @@ entrypoint:
 
 # Define the actions
 actions:
+  'clean':
+    command:
+      # This is just a list of arguments we pass to the function (i.e., sys.argv in Python)
+      args:
+      - clean
+    input:
+    # Define the input: a single string under the 'INPUT' environment variable
+    - name: input
+      type: string
+    - name: output_path
+      type: string
+    output:
+    # Define the output: a string, identifyable by the 'output' key
+    - name: output
+      type: string
+  'numeralization':
+    command:
+      # This is just a list of arguments we pass to the function (i.e., sys.argv in Python)
+      args:
+      - numeralization
+    input:
+    # Define the input: a single string under the 'INPUT' environment variable
+    - name: input
+      type: string
+    - name: output_path
+      type: string
+    output:
+    # Define the output: a string, identifyable by the 'output' key
+    - name: output
+      type: string
+  'normalization':
+    command:
+      # This is just a list of arguments we pass to the function (i.e., sys.argv in Python)
+      args:
+      - normalization
+    input:
+    # Define the input: a single string under the 'INPUT' environment variable
+    - name: input
+      type: string
+    - name: output_path
+      type: string
+    output:
+    # Define the output: a string, identifyable by the 'output' key
+    - name: output
+      type: string
   'train':
     command:
       # This is just a list of arguments we pass to the function (i.e., sys.argv in Python)
@@ -32,7 +77,7 @@ actions:
     # Define the input: a single string under the 'INPUT' environment variable
     - name: input
       type: string
-    - name: model_path
+    - name: output_path
       type: string
     output:
     # Define the output: a string, identifyable by the 'output' key
