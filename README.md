@@ -10,3 +10,4 @@
   model_path: `/data/`
   output_path: `/data/`
   
+[![DOI](https://zenodo.org/badge/497735628.svg)](https://zenodo.org/badge/latestdoi/497735628)
