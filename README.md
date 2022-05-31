@@ -1,5 +1,5 @@
 ### Run: 
-  `brane import ZNBai/bzn9`
+  `brane import ZNBai/Compute`
 ### Test:
   `brane brane --debug test --data ./data titanic`
 #### "Train":
