@@ -1,7 +1,7 @@
 ### Run: 
   `brane import ZNBai/Compute`
 ### Test:
-  `brane brane --debug test --data ./data compute`
+  `brane brane --debug test --data ./data computation`
 #### "Train":
   input: `/data/train.csv`
   model_path: `/data/`
