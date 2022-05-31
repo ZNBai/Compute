@@ -1,4 +1,4 @@
-name: titanic
+name: computation
 version: 1.0.0
 kind: ecu
 
@@ -13,13 +13,13 @@ install:
 
 # Define the files that are part of the package
 files:
-  - Titanic.py
+  - compute.py
   - requirements.txt
 
 # Defines the file to call whenever a function is called
 entrypoint:
   kind: task
-  exec: Titanic.py
+  exec: compute.py
 
 # Define the actions
 actions:

@@ -15,14 +15,14 @@ def read_input(input_path):
     data = pd.read_csv(input_path)
     return data
 
-def clean(input_path, output_path):
+def compute_clean(input_path, output_path):
     df = read_input(input_path)
     df = df.drop(df[df.Embarked.isnull()].index)
     df.fillna(df.median(), inplace = True)
     df.to_csv(output_path + "clean.csv", index=False)
     return "Wrote the preprocessed data to: " + output_path + "clean.csv.\n" 
 
-def numeralization(input_path, output_path):
+def compute_numeralization(input_path, output_path):
     data = read_input(input_path)
     # Factorization for class-specific attributes, Embarked,Sex,Pclass
     dummies_Embarked = pd.get_dummies(data['Embarked'], prefix='Embarked')
@@ -37,7 +37,7 @@ def numeralization(input_path, output_path):
     return "Wrote the numeralized data to: " + output_path + "numeralization.csv.\n" 
 
 # Feature normalisation
-def normalization(input_path, output_path):
+def compute_normalization(input_path, output_path):
     df = read_input(input_path)
     scaler = preprocessing.StandardScaler()
     age_scale_param = scaler.fit(df['Age'].values.reshape(-1,1))
@@ -47,7 +47,7 @@ def normalization(input_path, output_path):
     df.to_csv(output_path + "normalization.csv", index=False)
     return "Wrote the normalized data to: " + output_path + "normalization.csv.\n" 
 
-def train(input_path, output_path):
+def compute_train(input_path, output_path):
 
     df = read_input(input_path)
     #df = data_clean(df)
@@ -73,7 +73,7 @@ def train(input_path, output_path):
     return "Accuracy score: " + str(clf.score(test_X,test_y)) + ".\nWrote the model to: " + output_path + "clf.pickle.\n" 
 
 #def test(input: str, output_path: str) -> str:
-def test(input_path, model_path, output_path):
+def compute_test(input_path, model_path, output_path):
     if os.path.getsize(model_path+'clf.pickle') > 0:
         f = open(model_path+'clf.pickle','rb')
         clf = pickle.load(f)
@@ -108,16 +108,16 @@ if __name__ == "__main__":
     # If it checks out, call the appropriate function
     command = sys.argv[1]
     if command == "clean":
-        result = clean(input_path, output_path)
+        result = compute_clean(input_path, output_path)
     elif command == "numeralization":
-        result = numeralization(input_path, output_path)
+        result = compute_numeralization(input_path, output_path)
     elif command == "normalization":
-        result = normalization(input_path, output_path)
+        result = compute_normalization(input_path, output_path)
     elif command == "train":
-        result = train(input_path, output_path)
+        result = compute_train(input_path, output_path)
     else:
         model_path = os.environ["MODEL_PATH"]
-        result = test(input_path, model_path, output_path)
+        result = compute_test(input_path, model_path, output_path)
 
         #result = test(os.environ["INPUT"], os.environ["OUTPUT_PATH"])
 
