@@ -19,8 +19,8 @@ def clean(input_path, output_path):
     df = read_input(input_path)
     df = df.drop(df[df.Embarked.isnull()].index)
     df.fillna(df.median(), inplace = True)
-    df.to_csv(output_path + "preprocess.csv", index=False)
-    return "Wrote the preprocessed data to: " + output_path + "preprocess.csv.\n" 
+    df.to_csv(output_path + "clean.csv", index=False)
+    return "Wrote the preprocessed data to: " + output_path + "clean.csv.\n" 
 
 def numeralization(input_path, output_path):
     data = read_input(input_path)
