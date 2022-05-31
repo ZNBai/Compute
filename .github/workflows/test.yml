@@ -1,4 +1,4 @@
-name: TestTitanicCompute
+name: TestCompute
 
 on: [push]
 
