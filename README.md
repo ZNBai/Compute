@@ -1,5 +1,5 @@
 # Brane Scikit-learn package
-![example workflow](https://github.com/ZNBai/Compute/blob/main/.github/workflows/test.yml/badge.svg) [![DOI](https://zenodo.org/badge/497735628.svg)](https://zenodo.org/badge/latestdoi/497735628)
+![example event parameter](https://github.com/ZNBai/Compute/blob/main/.github/workflows/test.yml/badge.svg?event=push) [![DOI](https://zenodo.org/badge/497735628.svg)](https://zenodo.org/badge/latestdoi/497735628)
 ## Requirements
 pyyaml==5.4.1
 pandas==1.2.4
@@ -17,6 +17,6 @@ brane import ZNBai/Compute
 | numeralization  |  INPUT: '/data/train.csv'<br>OUTPUT_PATH: '/data/' | /data/numeralization.csv |
 | normalization  |  INPUT: '/data/train.csv'<br>OUTPUT_PATH: '/data/' | /data/normalization.csv |
 | train  |  INPUT: '/data/train.csv'<br>OUTPUT_PATH: '/data/' | clf.pickle |
-| test  |  INPUT: '/data/train.csv'<br>MODEL_PATH: '/data/'<br>OUTPUT_PATH: '/data/' | /data/normalization.csv |
+| test  |  INPUT: '/data/train.csv'<br>MODEL_PATH: '/data/'<br>OUTPUT_PATH: '/data/' | /data/prediction.csv |
 ## Tests
 Run unit tests with pytest: `pytest`
