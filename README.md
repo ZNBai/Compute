@@ -2,9 +2,13 @@
 [![DOI](https://zenodo.org/badge/497735628.svg)](https://zenodo.org/badge/latestdoi/497735628)
 ## Requirements
 pyyaml==5.4.1
+
 pandas==1.2.4
+
 numpy==1.20.3
+
 sklearn==1.1.1
+
 flake8
 ## Installation
 ```
