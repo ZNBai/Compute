@@ -1,5 +1,5 @@
 # Brane Scikit-learn package
-![example event parameter](https://github.com/ZNBai/Compute/blob/main/.github/workflows/test.yml/badge.svg?event=push) [![DOI](https://zenodo.org/badge/497735628.svg)](https://zenodo.org/badge/latestdoi/497735628)
+[![DOI](https://zenodo.org/badge/497735628.svg)](https://zenodo.org/badge/latestdoi/497735628)
 ## Requirements
 pyyaml==5.4.1
 pandas==1.2.4
