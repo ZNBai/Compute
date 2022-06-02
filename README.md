@@ -10,13 +10,14 @@ flake8
 ```
 brane import ZNBai/Compute
 ```
-## Finctions
-| NAME | INPUT | OUTPUT |
+## Functions
+
+| NAME | INPUT EXAMPLES | OUTPUT EXAMPLES |
 | :----: | :----: | :----: |
 |  clean   |  INPUT: '/data/train.csv'<br>OUTPUT_PATH: '/data/' | /data/clean.csv |
 | numeralization  |  INPUT: '/data/train.csv'<br>OUTPUT_PATH: '/data/' | /data/numeralization.csv |
 | normalization  |  INPUT: '/data/train.csv'<br>OUTPUT_PATH: '/data/' | /data/normalization.csv |
 | train  |  INPUT: '/data/train.csv'<br>OUTPUT_PATH: '/data/' | clf.pickle |
-| test  |  INPUT: '/data/train.csv'<br>MODEL_PATH: '/data/'<br>OUTPUT_PATH: '/data/' | /data/prediction.csv |
+| test  |  INPUT: '/data/test.csv'<br>MODEL_PATH: '/data/'<br>OUTPUT_PATH: '/data/' | /data/prediction.csv |
 ## Tests
 Run unit tests with pytest: `pytest`
